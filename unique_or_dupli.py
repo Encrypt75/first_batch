@@ -1,23 +1,16 @@
-def has_duplicate_digits(number):
-    str_number = str(number)
-    seen_digits = set()
-    for digit in str_number:
-        if digit in seen_digits:
-            return True
-        seen_digits.add(digit)
-    return False
+#storage for entered number
+entered_number = set()
 
-def main():
-    while True:
-        user_input = input("Enter a number: ")
-        try:
-            number = int(user_input)
-            if has_duplicate_digits(number):
-                print("Duplicate")
-            else:
-                print("Unique")
-        except ValueError:
-            print("Invalid input. Exiting the program.")
-            break
-
-main()
+#check if the value is valid
+while True:
+    try:
+        #the user must input numbers
+        ask = int(input("Enter number(####): "))
+    except ValueError:
+        print("Value is invalid")
+    else:
+        if ask in entered_number:
+            print("duplicated")
+        else:
+            print("unique")
+            entered_number.add(ask)
