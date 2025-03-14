@@ -14,6 +14,7 @@ for num in num_storage:
 
 #to sort all the values from least to greatest
 fixed = sorted(srt_lst)
+#to find the first index in the list
 fisrt_num_in_list = fixed[0]
 
 #print statement
