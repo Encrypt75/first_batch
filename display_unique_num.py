@@ -2,26 +2,23 @@
 num_storage = []
 
 #for-loop to ask for the user 10 input
-for num in range(1, 11):
-    ask_num = int(input(f"{num}.) Enter num: "))
+for every_num in range(1, 11):
+    ask_num = int(input(f"{every_num}.) Enter num: "))
     num_storage.append(ask_num)
 
-#check if the number has a duplicate
-count_dupli = 0
-for check in num_storage:
-    if check in num_storage:
-        count_dupli += 1
+counts = {}  
+#check if the number has duplicate
+for every_num in num_storage:
+    if every_num in counts:
+        counts[every_num] += 1  
     else:
-        count_dupli += 0
+        counts[every_num] = 1  
 
-duplicated_num = []
+odd = []  # storage for numbers with no duplicates
 
-if count_dupli == 1:
-    duplicated_num.append(check)
-else:
-    pass
+for number, count in counts.items():
+    if count == 1:  # Check if the count is only exactly 1 
+        odd.append(number)
 
-
-
-
-
+#print statement
+print(f"Unique numbers: {odd}")
