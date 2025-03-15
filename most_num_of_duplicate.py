@@ -1,15 +1,26 @@
-#create a dictionary {key: value}
-dict1 = {1: 2, 3: 6}
-#convert dictionary to string
-#create a iteration the checks every key and value
-#create num_list and count_list
-#key will append the num_list
-#value will append to count_list
-num_list = []
-count_list = []
+#def that checks if the input is valid
+def invalid(prompt):
+    while True:
+        try:
+            num = int(input(prompt))
+            return num
+        except ValueError:
+            print("Invalid input. Try again.")
 
-for key, count in dict1:
-    num_list.append(key)
-    count_list.append(count)
+#def that checks the number of the largest duplicate
+def most_num_of_dupli(list_store):
+    if not list_store:
+        return None
+    return max(set(list_store), key=list_store.count)
 
-print(num_list, count_list)
+list_store = []
+
+#ask user 10 times for input
+for ask in range(1, 11):
+    number = invalid(f"{ask}.) Enter number: ")
+    list_store.append(number)
+
+result = most_num_of_dupli(list_store)
+
+#print statement
+print(f"The number with the most duplicates is: {result}")
