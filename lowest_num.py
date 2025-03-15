@@ -1,9 +1,18 @@
+#try again until the value is valid
+def is_valid(number):
+    while True:
+        try:
+            num = int(input(number))
+            return num
+        except ValueError:
+            print("Invalid input, try again.")
+
 #storage for inputed numbers
 num_storage = []
-#asks the user for input ten times
+#for-loop for asking
 for ask_num in range(1, 11):
-    ask_for_num = int(input(f"{ask_num}.) Enter number: "))
-    num_storage.append(ask_for_num)
+    number = is_valid(f"{ask_num}.) Enter number: ")
+    num_storage.append(number)
 
 #storage for converted numbers
 srt_lst = []
@@ -13,9 +22,9 @@ for num in num_storage:
     srt_lst.append(cnvrt)
 
 #to sort all the values from least to greatest
-fixed = sorted(srt_lst)
-#to find the first index in the list
-fisrt_num_in_list = fixed[0]
+srt_lst = sorted(srt_lst)
+#finds the value of the fisrt index
+fisrt_num_in_list = srt_lst[0]
 
 #print statement
 print("the lowest number is: ", fisrt_num_in_list)
